@@ -117,57 +117,30 @@ run_antenna_check
 ```
 
 # COURSE
-## DAY 1 : Inception of opensource-EDA, Opennlane and Skywater130
-## Skywater-130 PDK
+## DAY 1
+Invoking openlane:
+```shell
+./flow.tcl -interactive
+``` 
+![Alt text](image.png)
 
-![A_DAY1_PDKS](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/64ca3a21-4a81-4094-ad18-0079d698d645)
+```shell
+package require openlane 0.9
+```
+![Alt text](image-1.png)
 
-The Skywater PDK files we are working with are described under $PDK_ROOT
-1. Skywater-pdk – Contains all the foundry provided PDK related files
-2. Open_pdks – Contains scripts that are used to bridge the gap between closed-source and open-source PDK to EDA tool compatibility
-3. Sky130A – The open-source compatible PDK files
+```shell
+cd designs/picorv32a
+ls -ltr
+```
+![Alt text](image-2.png)
 
-## Invoking OpenLane
+> I have used tcl config one can choose to use the more later JSON format
 
-![a_day1_invoke](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/77ca741e-1ec1-4322-a67e-dd6bbcd8a1e6)
+![Alt text](image-3.png)
 
-flow.tcl is the file that contains the script to run the designs
-
-## Importing package
-
-Different software dependencies are needed to run OpenLANE. To import these into the OpenLANE tool we need to run: ```package require openlane 0.9```
-
-![a_day1_packagge_req](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/0ee50a40-0d0a-4bcd-bcf4-f7a3fc8204e9)
-
-## Designs presnt in openalne and Heirarchy in a Design
-
-![a_day1_designhier](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/306d0c04-e1f4-4936-825a-b9480defde52)
-
-- ```Src folder``` - Contains verilog files and sdc constraint files
-- ```Config.tcl files``` - Design specific configuration switches used by OpenLANE
-
-## Config file example content
-
-![a_day1_configtcl](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/fcbdac6f-704e-4bdd-a051-791525392433)
-
-## Prepare the design for the flow 
-
-```prep -design <design_name> -tag <tag>```
-
-![a_day1_prep_design](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/4517d1fe-69d8-4da1-96e3-40debdc548af)
-
-Once the design prep stage is done, it creates a runs directory where all the results will be stored
-
-![a_day1_runs](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/0b7230f2-589a-4ff6-a9e3-0764235c8fce)
-
-## Synthesis
-
-```run_synthesis```
-
-![a_day1_run_synthesis](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/7f2375b4-f15b-4d47-bb2f-44493e586d9c)
-
-****The main task to do at the beginning stage is to find the flop ration ie., (No. of D flip flops / Total number of cells)****
-
-![a_day1_flopratio](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/20e5fb03-2184-493f-892b-be3fdf5df92b)
-
-[BACK TO TOP](https://github.com/yagnavivek/PES_OpenLane_PD#to-enter-the-automated-flow-use-these-commands)
+Make sure you are still in interactive mode, to run synthesis use the command synthesis.
+*yosys takes over*
+```
+synthesis
+```
