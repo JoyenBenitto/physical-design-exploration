@@ -141,6 +141,9 @@ ls -ltr
 
 Make sure you are still in interactive mode, to run synthesis use the command synthesis.
 *yosys takes over*
+```shell
+synthesis![Alt text](image-4.png)
 ```
-synthesis
-```
+Flop ratio:
+
+![Alt text](image-5.png)
